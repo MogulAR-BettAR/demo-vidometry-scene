@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vidometer Scene Demo</title>
+  <script src="https://bettar.life/vidometry/vidometer.1.0.8.js"></script>
+  <script src="https://bettar.life/vidometry/vidometry-scene.1.0.7.js"></script>
+  <script>
+
+    const onSceneLoading = (progress) => {
+      console.log('onSceneLoading: ' + progress);
+    };
+
+    const onSceneLoaded = () => {
+      console.log('onSceneLoaded');
+    };
+
+    const onSceneStarted = () => {
+      console.log('onSceneStarted');
+    };
+
+    function init() {
+      const scene = document.getElementById("scene");
+      scene.onLoading = onSceneLoading;
+      scene.onLoaded = onSceneLoaded;
+      scene.onStarted = onSceneStarted;
+    }
+
+  </script>
+</head>
+
+<body onload="init();">
+  <div style=" position: fixed; left: 0; top: 0; width: 100vw; height: 100vh;" scrolling="no">
+    <vidometry-scene id="scene">
+      <vidometry-vidometer></vidometry-vidometer>
+      <vidometry-image id="video" src="./assets/mickey.png" size="0.59 1.0">
+      </vidometry-image>
+    </vidometry-scene>
+  </div>
+</body>
+
+</html>
