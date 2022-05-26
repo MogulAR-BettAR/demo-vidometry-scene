@@ -12,6 +12,7 @@
     "start:gltf": "webpack-dev-server --https --host 0.0.0.0 --mode development --config webpack.dev.gltf.js",
     "start:video": "webpack-dev-server --https --host 0.0.0.0 --mode development --config webpack.dev.video.js",
     "start:image": "webpack-dev-server --https --host 0.0.0.0 --mode development --config webpack.dev.image.js",
+    "start:vitracker": "webpack-dev-server --https --host 0.0.0.0 --mode development --config webpack.dev.vitracker.js",
     "start:viewer": "webpack-dev-server --https --host 0.0.0.0 --mode development --config webpack.dev.viewer.js"
   },
   "dependencies": {},

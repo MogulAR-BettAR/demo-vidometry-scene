@@ -1,4 +1,4 @@
-# vidometry-scene v1.0.7
+# vidometry-scene v1.0.8
 
 ## vidometer-scene-demo
 
@@ -26,6 +26,8 @@ start:video - runs vidometer example with video;
 
 start:image - runs vidometer example with image;
 
+start:vitracker - runs vitracker example with video overlay;
+
 start:viewer - runs viewer example;
 
 ```tsx
@@ -34,6 +36,8 @@ npm run start:gltf
 npm run start:video
 // OR
 npm run start:image
+// OR
+npm run start:vitracker
 // OR
 npm run start:viewer
 ```
@@ -46,6 +50,8 @@ yarn start:gltf
 yarn start:video
 // OR
 yarn start:image
+// OR
+yarn start:vitracker
 // OR
 yarn start:viewer
 ```
@@ -71,6 +77,8 @@ https://localhost:8080
 ***onLoaded()*** - throws when all sources are loaded and experience ready to start;
 
 ***onStarted()*** - throws when experience is started;
+
+***onStopped()*** - throws when experience is stopped (uses for the **vitracker** experience when target isn’t detected);
 
 ```jsx
 <vidometry-scene shadow-cast>
@@ -235,7 +243,9 @@ You can add one of the following managers on the scene:
 
 ```jsx
 <vidometry-scene id="scene">
+	...
 	<vidometry-vidometer preview></vidometry-vidometer>
+	...
 </vidometry-scene>
 ```
 
@@ -253,4 +263,14 @@ You can use Viewer for the development. Each axis on the scene is approximately 
 
 ### vidometry-vitracker
 
-under development
+Attributes:
+
+***target*** - the source of the image target (*.jpg);
+
+```jsx
+<vidometry-scene id="scene">
+	...
+	<vidometry-vitracker target="./assets/target.jpg"></vidometry-vitracker>
+	...
+</vidometry-scene>
+```
