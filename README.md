@@ -1,66 +1,6 @@
-# vidometry-scene v1.0.8
+# vidometry-scene v2.0.1
 
 ## vidometer-scene-demo
-
-### Installation
-
-Execute the following command in order to install dependencies:
-
-```tsx
-npm i
-```
-
-or
-
-```tsx
-yarn install
-```
-
-### Development
-
-Execute the following command in order to run the application in development mode:
-
-start:gltf - runs vidometer example with gltf object;
-
-start:video - runs vidometer example with video;
-
-start:image - runs vidometer example with image;
-
-start:vitracker - runs vitracker example with video overlay;
-
-start:viewer - runs viewer example;
-
-```tsx
-npm run start:gltf
-// OR
-npm run start:video
-// OR
-npm run start:image
-// OR
-npm run start:vitracker
-// OR
-npm run start:viewer
-```
-
-OR
-
-```tsx
-yarn start:gltf
-// OR
-yarn start:video
-// OR
-yarn start:image
-// OR
-yarn start:vitracker
-// OR
-yarn start:viewer
-```
-
-Run the following URL on your mobile device:
-
-```tsx
-https://localhost:8080
-```
 
 # API
 

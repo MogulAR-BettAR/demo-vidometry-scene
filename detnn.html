@@ -1,0 +1,79 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Vidometer Scene</title>
+  <script src="https://bettar.life/vidometry/detnn.2.0.1.js"></script>
+  <script src="https://bettar.life/vidometry/vidometry-scene.2.0.1.js"></script>
+
+  <script>
+    const onSceneLoading = (progress) => {
+      const progressStr = (progress * 100).toFixed(1) + '%';
+      const progressBar = document.getElementById("progressBar");
+      progressBar.innerText = progressStr;
+    };
+
+    const onSceneLoaded = () => {
+      const info = 'Ready';
+      const progressBar = document.getElementById("progressBar");
+      progressBar.innerText = info;
+    };
+
+    const onSceneStarted = () => {
+      const info = 'Detected';
+      const progressBar = document.getElementById("progressBar");
+      progressBar.innerText = info;
+
+      const mask = document.getElementById("mask");
+      mask.playAllAnimations();
+    };
+
+    const onSceneStopped = () => {
+      const info = 'Not detected';
+      const progressBar = document.getElementById("progressBar");
+      progressBar.innerText = info;
+
+      const mask = document.getElementById("mask");
+      mask.stopAllAnimations();
+    };
+
+    function init() {
+      const vidometryScene = document.getElementById("vidometryScene");
+      vidometryScene.onLoading = onSceneLoading;
+      vidometryScene.onLoaded = onSceneLoaded;
+      vidometryScene.onStarted = onSceneStarted;
+      vidometryScene.onStopped = onSceneStopped;
+
+      const detnnFace = document.getElementById("detnnFace");
+    }
+
+  </script>
+</head>
+
+<body onload="init();">
+
+  <div style=" position: fixed; left: 0; top: 0; width: 100vw; height: 100vh;" scrolling="no">
+
+    <vidometry-scene id="vidometryScene">
+
+      <!-- add lightning -->
+      <vidometry-ambient-light color="#ffeeb1" intensity="2"></vidometry-ambient-light>
+      <vidometry-point-light color="#ffffff" intensity="3" position="10 10 10"></vidometry-point-light>
+
+      <vidometry-gltf id="mask" src="./assets/trump.glb" rotation="90 0 0" position="0 0 -0.15"
+        scale="1.3 1.3 1.3"></vidometry-gltf>
+
+      <detnn-face id="detnnFace"></detnn-face>
+
+    </vidometry-scene>
+
+    <div id="progressBar" style="position: absolute; left: 2vw; right: 2vw; top: 2vh; height: 20vw;  font-size: 2hv;">
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
