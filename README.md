@@ -6,10 +6,6 @@
 
 ## vidometry-scene
 
-***Attributes:***
-
-***shadow-cast*** - optional, enables shadow casting functionality;
-
 ***Callbacks:***
 
 ***onLoading(progress)*** - throws when sources are loading, (form 0 to 1);
@@ -18,10 +14,10 @@
 
 ***onStarted()*** - throws when experience is started;
 
-***onStopped()*** - throws when experience is stopped (uses for the **vitracker** experience when target isn’t detected);
+***onStopped()*** - throws when experience is stopped (uses for the **vitracker** experience when the target isn’t detected; uses for the **detnn** experience when the object isn’t detected);
 
 ```jsx
-<vidometry-scene shadow-cast>
+<vidometry-scene>
 	...
 </vidometry-scene>
 ```
@@ -177,9 +173,9 @@ You can add one of the following managers on the scene:
 
 ### vidometry-vidometer
 
-**Attributes:**
+Callbacks**:**
 
-***preview*** - (optional) show model on the scene before the starting;
+***onKeyframe(result)*** - throws when user is trying to in experience by tapping on the screen; result = true if keyframe is added, result = false if keyframe isn’t added (not enough features or wrong orientation of the camera);
 
 ```jsx
 <vidometry-scene id="scene">
@@ -189,7 +185,9 @@ You can add one of the following managers on the scene:
 </vidometry-scene>
 ```
 
-### vidometry-viewer
+[Vidometer demo](https://bettar.life/vidometer-scene/)
+
+### vidometry-viewer (under development)
 
 ```tsx
 <vidometry-scene>
@@ -201,7 +199,7 @@ You can add one of the following managers on the scene:
 
 You can use Viewer for the development. Each axis on the scene is approximately 1.5m. 
 
-### vidometry-vitracker
+### vidometry-vitracker (under development)
 
 Attributes:
 
@@ -214,3 +212,59 @@ Attributes:
 	...
 </vidometry-scene>
 ```
+
+### detnn-face
+
+Face detection. In the future, we plan to add detection and tracking of different parts of the face.
+
+```jsx
+<vidometry-scene id="scene">
+	...
+	<detnn-face></detnn-face>
+	...
+</vidometry-scene>
+```
+
+[DetnnFace demo](https://bettar.life/detnn-scene/)
+
+### detnn-hand (under development)
+
+Hand detection and tracking.
+
+```jsx
+<vidometry-scene id="scene">
+	...
+	<detnn-hand></detnn-hand>
+	...
+</vidometry-scene>
+```
+
+### detnn-foot (under development)
+
+Foot detection and tracking.
+
+```jsx
+<vidometry-scene id="scene">
+	...
+	<detnn-foot></detnn-foot>
+	...
+</vidometry-scene>
+```
+
+### detnn-body (under development)
+
+Full body detection and tracking.
+
+```jsx
+<vidometry-scene id="scene">
+	...
+	<detnn-body></detnn-body>
+	...
+</vidometry-scene>
+```
+
+## Demos
+
+[Vidometer demo](https://bettar.life/vidometer-scene/)
+
+[DetnnFace demo](https://bettar.life/detnn-scene/)
