@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Demo Vidometer Scene</title>
-  <script src="https://bettar.life/vidometry/vidometer.2.0.1.js"></script>
+  <script src="https://bettar.life/vidometry/vidometer.2.0.2.js"></script>
   <script src="https://bettar.life/vidometry/vidometry-scene.2.0.1.js"></script>
 
   <script>
@@ -30,9 +30,13 @@
     };
 
     const onVidometerKeyframe = (result) => {
-      let info = 'Not enough features, try again'
-      if (result) {
+      let info = '';
+      if (result === 100) {
         info = 'Keyframe is added';
+      } else if (result === 0) {
+        info = 'Wrong orientation';
+      } else if (result === 1) {
+        info = 'Not enough features, try again';
       }
       const progressBar = document.getElementById("progressBar");
       progressBar.innerText = info;
